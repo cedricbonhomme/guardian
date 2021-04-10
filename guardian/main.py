@@ -5,14 +5,23 @@ import argparse
 from yaml import load, CLoader
 
 
-def run():
-    parser = argparse.ArgumentParser(prog='guardian')
+def exec_cmd(cmd):
+    """Execute a command."""
+    pass
 
-    parser.add_argument("-c", "--config", dest="config_file",
-                    required=True, help="Configuration file (YAML).")
+
+def run():
+    parser = argparse.ArgumentParser(prog="guardian")
+
+    parser.add_argument(
+        "-c",
+        "--config",
+        dest="config_file",
+        required=True,
+        help="Configuration file (YAML).",
+    )
 
     arguments = parser.parse_args()
-
 
     with open(arguments.config_file, "r") as f:
         stream = f.read()
