@@ -5,6 +5,9 @@ description = "Check the status of interdependent services."
 authors = ["Cédric Bonhomme <cedric@cedricbonhomme.org>"]
 license = "AGPL-3.0-or-later"
 
+[tool.poetry.scripts]
+guardian = "guardian.main:run"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 PyYAML = "^5.4.1"
