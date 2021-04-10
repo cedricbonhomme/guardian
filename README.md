@@ -12,7 +12,7 @@ Check the status of interdependent services.
 ## License
 
 This software is licensed under
-[GNU General Public License version 3](https://www.gnu.org/licenses/gpl-3.0.html)
+[GNU Affero General Public License version 3](https://www.gnu.org/licenses/agpl-3.0.html).
 
 Copyright (C) 2021 [Cédric Bonhomme](https://www.cedricbonhomme.org)
 
