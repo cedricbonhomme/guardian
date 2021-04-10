@@ -36,3 +36,5 @@ eproject.cfg
 
 # Vagrant:
 .vagrant/
+
+guardian/config/*.yaml

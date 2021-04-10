@@ -1,19 +1,19 @@
---- 
 name: "Description of the services"
 
-
-services: 
-  service1: 
+services:
+  service1:
     checks:
-      - probe: "command\n"
-      - expected: "value\n"
-    depends_on: 
+      check1:
+        - probe: "command"
+        - expected: "value"
+      check2:
+        - probe: "command"
+        - expected: "value"
+    depends_on:
       - service2
 
-  service2: 
-    checks: 
-      - 
-        probe: "command\n"
-      - 
-        expected: "value\n"
-
+  service2:
+    checks:
+      check1:
+        - probe: "command"
+        - expected: "value"
