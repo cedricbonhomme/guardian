@@ -3,6 +3,7 @@
 
 import argparse
 import subprocess
+from datetime import datetime
 from yaml import load, CLoader
 
 
@@ -39,6 +40,7 @@ def run():
     # Go through all checks
     results = []
     services = data["services"]
+    start = datetime.now()
     for service in services:
         print("+ " + service)
         for check in services[service]["checks"]:
@@ -54,8 +56,10 @@ def run():
             else:
                 results.append(False)
                 print("     -> " + "KO")
+    end = datetime.now()
     if all(results):
-        print("✨ 🌟 ✨ All tests are successful.")
+        print("✨ 🌟 ✨ All {} tests are successful.".format(len(results)))
+    print("Execution time: {}".format(end - start))
 
 
 if __name__ == "__main__":
