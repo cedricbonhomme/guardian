@@ -8,7 +8,7 @@ from yaml import load, CLoader
 
 
 def exec_cmd(cmd):
-    """Execute a command."""
+    """Execute a command in a sub process."""
     bash_string = r"""#!/bin/bash
     {}
     """.format(
@@ -21,6 +21,9 @@ def exec_cmd(cmd):
 
 
 def run():
+    """Main function responsible to trigger the tests.
+    """
+    # Creates the command line parser.
     parser = argparse.ArgumentParser(prog="guardian")
 
     parser.add_argument(
@@ -30,15 +33,26 @@ def run():
         required=True,
         help="Configuration file (YAML).",
     )
+    parser.add_argument(
+        "--email",
+        dest="email_notification",
+        action="store_true",
+        help="Send an email in case of failed test(s).",
+    )
+    parser.set_defaults(email_notification=False)
 
     arguments = parser.parse_args()
 
+
+    # Read the configuration file
     with open(arguments.config_file, "r") as f:
         stream = f.read()
         data = load(stream, Loader=CLoader)
 
-    # Go through all checks
+
+    # Pass through all the tests.
     results = []
+    errors = []
     services = data["services"]
     start = datetime.now()
     for service in services:
@@ -55,11 +69,21 @@ def run():
                 print("     -> " + "OK")
             else:
                 results.append(False)
+                errors.append((service, check))
                 print("     -> " + "KO")
     end = datetime.now()
     if all(results):
         print("✨ 🌟 ✨ All {} tests are successful.".format(len(results)))
-    print("Execution time: {}".format(end - start))
+    else:
+        print(
+            "{number} error{plural} occured.".format(
+                number=len(errors), plural="s" if len(errors) > 1 else ""
+            )
+        )
+        print("Execution time: {}".format(end - start))
+        if arguments.email_notification:
+            print("Sending email notification...")
+            # TODO
 
 
 if __name__ == "__main__":

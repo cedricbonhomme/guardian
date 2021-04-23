@@ -6,13 +6,24 @@ Check the status of interdependent services.
 - checks and measures performed by probes;
 - no database;
 - serverless;
-- export different kind or reports.
+- email notifications.
 
 
 ## Example
 
 ```bash
+$ guardian -h
+usage: guardian [-h] -c CONFIG_FILE [--email]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIG_FILE, --config CONFIG_FILE
+                        Configuration file (YAML).
+  --email               Send an email in case of failed test(s).
+
+
 $ cp guardian/config/services.yaml.example guardian/config/services.yaml
+
 
 $ guardian -c guardian/config/services1.yaml
 + Service my.monarc.lu
