@@ -12,7 +12,22 @@ Check the status of interdependent services.
 ## Example
 
 ```bash
-guardian -c guardian/config/services.yaml
+$cp guardian/config/services.yaml.example guardian/config/services.yaml
+
+$ guardian -c guardian/config/services1.yaml
++ Service FO1
+ - Check casesmodels with curl
+     -> OK
+ - Check casesmodels2 with curl
+     -> OK
+ - Check Back Office with curl
+     -> OK
++ Service MOSP
+ - Check API
+     -> OK
++ Stats Service
+ - Check /about.json endpoint
+     -> OK
 ```
 
 ## License

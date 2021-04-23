@@ -1,19 +1,30 @@
 name: "Description of the services"
 
 services:
-  service1:
+  Service FO1:
     checks:
-      check1:
-        - probe: "command"
-        - expected: "value"
-      check2:
-        - probe: "command"
-        - expected: "value"
+      Check casesmodels with curl:
+        probe: "curl -IL https://my.monarc.lu/casesmodels/#/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+        expected: "200"
+      Check casesmodels2 with curl:
+        probe: "curl -IL https://my.monarc.lu/casesmodels2/#/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+        expected: "200"
+      Check Back Office with curl:
+        probe: "curl -IL https://my.monarc.lu/casesBO/#/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+        expected: "200"
     depends_on:
-      - service2
+      - MOSP
 
-  service2:
+  Service MOSP:
     checks:
-      check1:
-        - probe: "command"
-        - expected: "value"
+      Check API:
+        probe: 'curl --silent -X GET "https://objects.monarc.lu/api/v2/organization/?name=MONARC&page=1&per_page=10" -H  "accept: application/json" | jq  .metadata.count'
+        expected: '"1"'
+
+  Stats Service:
+    checks:
+      Check /about.json endpoint:
+        probe: "curl -IL https://dashboard.monarc.lu/about.json 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+        expected: "200"
+    depends_on:
+      - MOSP
