@@ -28,20 +28,20 @@ $ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
 $ guardian -c guardian/config/monarc-services.yaml
 + Service my.monarc.lu
  - Check front server with curl
-     -> OK
+     ✅
  - Check casesmodels with curl
-     -> OK
+     ✅
  - Check casesmodels2 with curl
-     -> OK
+     ✅
  - Check Back Office with curl
-     -> OK
+     ✅
 + Service MOSP
  - Check API
-     -> OK
+     ✅
 + Stats Service
  - Check /about.json endpoint
-     -> OK
-✨ 🌟 ✨ All tests are successful.
+     ✅
+✨ 🌟 ✨ All 6 tests are successful.
 ```
 
 ## License

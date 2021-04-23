@@ -31,3 +31,10 @@ services:
         expected: "200"
     depends_on:
       - MOSP
+
+  Service Google:
+    checks:
+      Check https://www.google.com/404:
+        probe: "curl -IL https://www.google.com/404 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+        expected: "200"
+        disabled: True

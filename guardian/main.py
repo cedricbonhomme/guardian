@@ -59,6 +59,10 @@ def run():
         print("+ " + service)
         for check in services[service]["checks"]:
             print(" - " + check)
+            if  services[service]["checks"][check].get("disabled", False):
+                # check disabled in the configuration file, skip it
+                print("     Test disabled in the configuration file.")
+                continue
             cmd = services[service]["checks"][check]["probe"]
             expected = services[service]["checks"][check]["expected"]
             # print("   - " + cmd)
@@ -66,11 +70,11 @@ def run():
             result = exec_cmd(cmd)
             if result == expected:
                 results.append(True)
-                print("     -> " + "OK")
+                print("     ✅")
             else:
                 results.append(False)
                 errors.append((service, check))
-                print("     -> " + "KO")
+                print("     ❌")
     end = datetime.now()
     if all(results):
         print("✨ 🌟 ✨ All {} tests are successful.".format(len(results)))
