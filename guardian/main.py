@@ -80,7 +80,7 @@ def run():
         print("✨ 🌟 ✨ All {} tests are successful.".format(len(results)))
     else:
         print(
-            "{number} error{plural} occured.".format(
+            "{number} error{plural} occurred.".format(
                 number=len(errors), plural="s" if len(errors) > 1 else ""
             )
         )

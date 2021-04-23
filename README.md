@@ -27,13 +27,13 @@ $ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
 
 $ guardian -c guardian/config/monarc-services.yaml
 + Service my.monarc.lu
- - Check front server with curl
+ - Check HTTPS front server
      ✅
- - Check casesmodels with curl
+ - Check HTTPS FO1 (casesmodels)
      ✅
- - Check casesmodels2 with curl
+ - Check HTTPS FO2 (casesmodels2)
      ✅
- - Check Back Office with curl
+ - Check HTTPS Back Office
      ✅
 + Service MOSP
  - Check API
@@ -42,6 +42,19 @@ $ guardian -c guardian/config/monarc-services.yaml
  - Check /about.json endpoint
      ✅
 ✨ 🌟 ✨ All 6 tests are successful.
+
+
+$ guardian -c guardian/config/google-services.yaml --email
++ Google services
+ - Test GMail
+     ✅
+ - Test Web search
+     ❌
+ - Test Google Drive
+     ✅
+1 error occurred.
+Execution time: 0:00:00.793011
+Sending email notification...
 ```
 
 ## License
