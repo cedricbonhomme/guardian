@@ -25,7 +25,7 @@ optional arguments:
 $ cp guardian/config/services.yaml.example guardian/config/services.yaml
 
 
-$ guardian -c guardian/config/services1.yaml
+$ guardian -c guardian/config/monarc-services.yaml
 + Service my.monarc.lu
  - Check front server with curl
      -> OK
