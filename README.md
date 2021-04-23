@@ -22,7 +22,7 @@ optional arguments:
   --email               Send an email in case of failed test(s).
 
 
-$ cp guardian/config/services.yaml.example guardian/config/services.yaml
+$ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
 
 
 $ guardian -c guardian/config/monarc-services.yaml
