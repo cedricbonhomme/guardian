@@ -15,7 +15,9 @@ Check the status of interdependent services.
 $ cp guardian/config/services.yaml.example guardian/config/services.yaml
 
 $ guardian -c guardian/config/services1.yaml
-+ Service FO1
++ Service my.monarc.lu
+ - Check front server with curl
+     -> OK
  - Check casesmodels with curl
      -> OK
  - Check casesmodels2 with curl
@@ -28,6 +30,7 @@ $ guardian -c guardian/config/services1.yaml
 + Stats Service
  - Check /about.json endpoint
      -> OK
+✨ 🌟 ✨ All tests are successful.
 ```
 
 ## License

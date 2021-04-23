@@ -1,8 +1,11 @@
 name: "Description of the services"
 
 services:
-  Service FO1:
+  Service my.monarc.lu:
     checks:
+      Check front server with curl:
+        probe: "curl -IL https://my.monarc.lu/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
+        expected: "200"
       Check casesmodels with curl:
         probe: "curl -IL https://my.monarc.lu/casesmodels/#/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
         expected: "200"

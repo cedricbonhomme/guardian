@@ -37,6 +37,7 @@ def run():
         data = load(stream, Loader=CLoader)
 
     # Go through all checks
+    results = []
     services = data["services"]
     for service in services:
         print("+ " + service)
@@ -48,9 +49,13 @@ def run():
             # print("   - " + expected)
             result = exec_cmd(cmd)
             if result == expected:
+                results.append(True)
                 print("     -> " + "OK")
             else:
+                results.append(False)
                 print("     -> " + "KO")
+    if all(results):
+        print("✨ 🌟 ✨ All tests are successful.")
 
 
 if __name__ == "__main__":
