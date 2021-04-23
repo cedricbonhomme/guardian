@@ -12,7 +12,7 @@ Check the status of interdependent services.
 ## Example
 
 ```bash
-$cp guardian/config/services.yaml.example guardian/config/services.yaml
+$ cp guardian/config/services.yaml.example guardian/config/services.yaml
 
 $ guardian -c guardian/config/services1.yaml
 + Service FO1
