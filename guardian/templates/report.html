@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="static/node_modules/bootstrap/dist/css/bootstrap.min.css" media="screen" />
+  <script type="text/javascript" src="static/node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script type="text/javascript" src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <title>Guardian report</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Guardian report" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        Report
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto w-100 justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="/" title="About">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          {% for report in reports %}
+          {% if report["is_ok"] %}
+          <li class="list-group-item list-group-item-success">{{ report["service_name"] }}</li>
+          {% else %}
+          <li class="list-group-item list-group-item-danger">
+            {{ report["service_name"] }}
+            Problems: {{ ", ".join(report["errors"]) }}
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <br />
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          Report generated at: {{ end_date }}
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

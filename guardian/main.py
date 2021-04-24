@@ -5,6 +5,7 @@ import argparse
 import subprocess
 from datetime import datetime
 from yaml import load, CLoader
+from jinja2 import Template
 
 
 def exec_cmd(cmd):
@@ -40,7 +41,14 @@ def run():
         action="store_true",
         help="Send an email in case of failed test(s).",
     )
-    parser.set_defaults(email_notification=False)
+    parser.add_argument(
+        "--html",
+        dest="html_report",
+        action="store_true",
+        help="Generate a HTML status page.",
+    )
+
+    parser.set_defaults(email_notification=False, html_report=False)
 
     arguments = parser.parse_args()
 
@@ -53,10 +61,16 @@ def run():
 
     # Pass through all the tests.
     results = []
-    errors = []
+    all_errors = []
+    reports = []
     services = data["services"]
-    start = datetime.now()
+    start_date = datetime.now()
     for service in services:
+        report = {
+            "service_name": service,
+            "is_ok": True,
+            "errors": [],
+        }
         print("+ " + service)
         for check in services[service]["checks"]:
             print(" - " + check)
@@ -74,22 +88,35 @@ def run():
                 print("     ✅")
             else:
                 results.append(False)
-                errors.append((service, check))
+                all_errors.append((service, check))
+                report["is_ok"] = False
+                report["errors"].append(check)
                 print("     ❌")
-    end = datetime.now()
-    print("Execution time: {}".format(end - start))
+
+        reports.append(report)
+    print(reports)
+    end_date = datetime.now()
+    print("Execution time: {}".format(end_date - start_date))
 
     if all(results):
         print("✨ 🌟 ✨ All {} tests are successful.".format(len(results)))
     else:
         print(
             "{number} error{plural} occurred.".format(
-                number=len(errors), plural="s" if len(errors) > 1 else ""
+                number=len(all_errors), plural="s" if len(all_errors) > 1 else ""
             )
         )
         if arguments.email_notification:
             print("Sending email notification...")
             # TODO
+
+    if arguments.html_report:
+        template = Template(open('guardian/templates/report.html').read())
+        outputHTML = template.render(reports=reports, end_date=end_date)
+        print()
+        print(outputHTML)
+        with open("reports/report.html", "w") as f:
+            f.write(outputHTML)
 
 
 if __name__ == "__main__":
