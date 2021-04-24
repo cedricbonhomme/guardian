@@ -2,14 +2,14 @@
 
 Check the status of interdependent services.
 
-- based on a yaml file;
-- checks and measures performed by probes;
-- no database;
-- serverless;
+- based on a YAML file;
+- tests performed by custom scripts (Shell script, Python script, etc.);
+- no database and serverless;
+- generation of HTML status page;
 - email notifications.
 
 
-## Example
+## Examples
 
 ```bash
 $ guardian --help

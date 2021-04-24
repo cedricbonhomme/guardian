@@ -94,7 +94,7 @@ def run():
                 print("     ❌")
 
         reports.append(report)
-    print(reports)
+
     end_date = datetime.now()
     print("Execution time: {}".format(end_date - start_date))
 
@@ -111,6 +111,7 @@ def run():
             # TODO
 
     if arguments.html_report:
+        print("Generating HTML status page...")
         template = Template(open('guardian/templates/report.html').read())
         outputHTML = template.render(reports=reports, end_date=end_date)
         with open("reports/report.html", "w") as f:
