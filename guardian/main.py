@@ -10,6 +10,7 @@ from yaml import load, CLoader
 def exec_cmd(cmd):
     """Execute a command in a sub process."""
     bash_string = r"""#!/bin/bash
+    set -e
     {}
     """.format(
         cmd
