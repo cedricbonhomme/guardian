@@ -76,6 +76,8 @@ def run():
                 errors.append((service, check))
                 print("     ❌")
     end = datetime.now()
+    print("Execution time: {}".format(end - start))
+
     if all(results):
         print("✨ 🌟 ✨ All {} tests are successful.".format(len(results)))
     else:
@@ -84,7 +86,6 @@ def run():
                 number=len(errors), plural="s" if len(errors) > 1 else ""
             )
         )
-        print("Execution time: {}".format(end - start))
         if arguments.email_notification:
             print("Sending email notification...")
             # TODO
