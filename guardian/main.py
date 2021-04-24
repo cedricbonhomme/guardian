@@ -113,8 +113,6 @@ def run():
     if arguments.html_report:
         template = Template(open('guardian/templates/report.html').read())
         outputHTML = template.render(reports=reports, end_date=end_date)
-        print()
-        print(outputHTML)
         with open("reports/report.html", "w") as f:
             f.write(outputHTML)
 

@@ -12,14 +12,15 @@ Check the status of interdependent services.
 ## Example
 
 ```bash
-$ guardian -h
-usage: guardian [-h] -c CONFIG_FILE [--email]
+$ guardian --help
+usage: guardian [-h] -c CONFIG_FILE [--email] [--html]
 
 optional arguments:
   -h, --help            show this help message and exit
   -c CONFIG_FILE, --config CONFIG_FILE
                         Configuration file (YAML).
   --email               Send an email in case of failed test(s).
+  --html                Generate a HTML status page.
 
 
 $ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
