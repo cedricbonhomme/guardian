@@ -72,14 +72,14 @@ def run():
             "errors": [],
         }
         print("+ " + service)
-        for check in services[service]["checks"]:
-            print(" - " + check)
-            if  services[service]["checks"][check].get("disabled", False):
-                # check disabled in the configuration file, skip it
+        for test in services[service]["tests"]:
+            print(" - " + test)
+            if  services[service]["tests"][test].get("disabled", False):
+                # test disabled in the configuration file, skip it
                 print("     Test disabled in the configuration file.")
                 continue
-            cmd = services[service]["checks"][check]["probe"]
-            expected = services[service]["checks"][check]["expected"]
+            cmd = services[service]["tests"][test]["probe"]
+            expected = services[service]["tests"][test]["expected"]
             # print("   - " + cmd)
             # print("   - " + expected)
             result = exec_cmd(cmd)
@@ -88,9 +88,9 @@ def run():
                 print("     ✅")
             else:
                 results.append(False)
-                all_errors.append((service, check))
+                all_errors.append((service, test))
                 report["is_ok"] = False
-                report["errors"].append(check)
+                report["errors"].append(test)
                 print("     ❌")
 
         reports.append(report)

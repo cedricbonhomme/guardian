@@ -2,39 +2,39 @@ name: "Description of the services"
 
 services:
   Service my.monarc.lu:
-    checks:
-      Check front server with curl:
+    tests:
+      Test front server with curl:
         probe: "curl -IL https://my.monarc.lu/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
         expected: "200"
-      Check casesmodels with curl:
+      Test casesmodels with curl:
         probe: "curl -IL https://my.monarc.lu/casesmodels/#/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
         expected: "200"
-      Check casesmodels2 with curl:
+      Test casesmodels2 with curl:
         probe: "curl -IL https://my.monarc.lu/casesmodels2/#/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
         expected: "200"
-      Check Back Office with curl:
+      Test Back Office with curl:
         probe: "curl -IL https://my.monarc.lu/casesBO/#/ 2>/dev/null | head -n 1 | cut -d$' ' -f2"
         expected: "200"
     depends_on:
       - MOSP
 
   Service MOSP:
-    checks:
-      Check API:
+    tests:
+      Test API:
         probe: 'curl --silent -X GET "https://objects.monarc.lu/api/v2/organization/?name=MONARC&page=1&per_page=10" -H  "accept: application/json" | jq  .metadata.count'
         expected: '"1"'
 
   Stats Service:
-    checks:
-      Check /about.json endpoint:
+    tests:
+      Test /about.json endpoint:
         probe: "curl -IL https://dashboard.monarc.lu/about.json 2>/dev/null | head -n 1 | cut -d$' ' -f2"
         expected: "200"
     depends_on:
       - MOSP
 
   Service Google:
-    checks:
-      Check https://www.google.com/404:
+    tests:
+      Test https://www.google.com/404:
         probe: "curl -IL https://www.google.com/404 2>/dev/null | head -n 1 | cut -d$' ' -f2"
         expected: "200"
         disabled: True

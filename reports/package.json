@@ -1,7 +1,7 @@
 {
   "name": "Guardian",
   "version": "0.1.0",
-  "description": "Check the status of interdependent services.",
+  "description": "Monitor the status of interdependent services.",
   "private": true,
   "scripts": {
     "postinstall": "cd static/ ; ln -sf ../node_modules npm_components"

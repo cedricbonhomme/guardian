@@ -1,6 +1,6 @@
 # Guardian
 
-Check the status of interdependent services.
+Monitor the status of interdependent services.
 
 - based on a YAML file;
 - tests performed by custom scripts (Shell script, Python script, etc.);
@@ -28,19 +28,19 @@ $ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
 
 $ guardian -c guardian/config/monarc-services.yaml
 + Service my.monarc.lu
- - Check HTTPS front server
+ - Test HTTPS front server
      ✅
- - Check HTTPS FO1 (casesmodels)
+ - Test HTTPS FO1 (casesmodels)
      ✅
- - Check HTTPS FO2 (casesmodels2)
+ - Test HTTPS FO2 (casesmodels2)
      ✅
- - Check HTTPS Back Office
+ - Test HTTPS Back Office
      ✅
 + Service MOSP
- - Check API
+ - Test API
      ✅
 + Stats Service
- - Check /about.json endpoint
+ - Test /about.json endpoint
      ✅
 ✨ 🌟 ✨ All 6 tests are successful.
 ```
