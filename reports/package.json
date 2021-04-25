@@ -4,7 +4,7 @@
   "description": "Check the status of interdependent services.",
   "private": true,
   "scripts": {
-  "postinstall": "cd static/ ; ln -sf ../node_modules npm_components"
+    "postinstall": "mkdir static/ ; cd static/ ; ln -sf ../node_modules npm_components"
   },
   "author": "Cédric Bonhomme",
   "license": "AGPL-3.0-or-later",
