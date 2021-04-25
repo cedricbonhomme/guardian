@@ -5,6 +5,29 @@ description = "Check the status of interdependent services."
 authors = ["Cédric Bonhomme <cedric@cedricbonhomme.org>"]
 license = "AGPL-3.0-or-later"
 
+readme = "README.md"
+homepage = "https://sr.ht/~cedric/guardian"
+repository = "https://git.sr.ht/~cedric/guardian"
+
+keywords = ["monitoring", "system", "notification", "report"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Security",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+]
+
+include = [
+    "README.md",
+    "COPYING",
+    "reports"
+]
+
 [tool.poetry.scripts]
 guardian = "guardian.main:run"
 
