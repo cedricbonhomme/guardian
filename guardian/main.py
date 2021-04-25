@@ -23,8 +23,7 @@ def exec_cmd(cmd):
 
 
 def run():
-    """Main function responsible to trigger the tests.
-    """
+    """Main function responsible to trigger the tests."""
     # Creates the command line parser.
     parser = argparse.ArgumentParser(prog="guardian")
 
@@ -52,12 +51,10 @@ def run():
 
     arguments = parser.parse_args()
 
-
     # Read the configuration file
     with open(arguments.config_file, "r") as f:
         stream = f.read()
         data = load(stream, Loader=CLoader)
-
 
     # Pass through all the tests.
     results = []
@@ -70,11 +67,12 @@ def run():
             "service_name": service,
             "is_ok": True,
             "errors": [],
+            "nb_test": len(services[service]["tests"])
         }
         print("+ " + service)
         for test in services[service]["tests"]:
             print(" - " + test)
-            if  services[service]["tests"][test].get("disabled", False):
+            if services[service]["tests"][test].get("disabled", False):
                 # test disabled in the configuration file, skip it
                 print("     Test disabled in the configuration file.")
                 continue
@@ -96,7 +94,7 @@ def run():
         reports.append(report)
 
     end_date = datetime.now()
-    print("Execution time: {}".format(end_date - start_date))
+    print("Execution time: {} seconds.".format((end_date - start_date).total_seconds()))
 
     if all(results):
         print("✨ 🌟 ✨ All {} tests are successful.".format(len(results)))
@@ -112,8 +110,10 @@ def run():
 
     if arguments.html_report:
         print("Generating HTML status page...")
-        template = Template(open('guardian/templates/report.html').read())
-        outputHTML = template.render(reports=reports, end_date=end_date)
+        template = Template(open("guardian/templates/report.html").read())
+        outputHTML = template.render(
+            reports=reports, end_date=end_date, time=end_date - start_date
+        )
         with open("reports/index.html", "w") as f:
             f.write(outputHTML)
 
