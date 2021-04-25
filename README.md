@@ -43,8 +43,11 @@ $ guardian -c guardian/config/monarc-services.yaml
  - Check /about.json endpoint
      ✅
 ✨ 🌟 ✨ All 6 tests are successful.
+```
 
+With email notification:
 
+```bash
 $ guardian -c guardian/config/google-services.yaml --email
 + Google services
  - Test GMail
