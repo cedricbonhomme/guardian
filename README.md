@@ -61,6 +61,15 @@ Execution time: 0:00:00.793011
 Sending email notification...
 ```
 
+
+## Contributing
+
+Patches and questions? Send to my [public
+inbox](https://lists.sr.ht/~cedric/public-inbox):
+[`~cedric/public-inbox@lists.sr.ht`](mailto:~cedric/public-inbox@lists.sr.ht).
+Thanks!
+
+
 ## License
 
 This software is licensed under
