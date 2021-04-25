@@ -14,9 +14,9 @@ keywords = ["monitoring", "system", "notification", "report"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Environment :: Console",
-    "Intended Audience :: Developers",
-    "Topic :: Security",
-    "Operating System :: OS Independent",
+    "Intended Audience :: System Administrators",
+    "Topic :: System :: Monitoring",
+    "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
@@ -27,6 +27,9 @@ include = [
     "COPYING",
     "reports"
 ]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://todo.sr.ht/~cedric/guardian"
 
 [tool.poetry.scripts]
 guardian = "guardian.main:run"

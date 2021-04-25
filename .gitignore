@@ -37,4 +37,7 @@ eproject.cfg
 # Vagrant:
 .vagrant/
 
+reports/node_modules/
+reports/index.html
+
 guardian/config/*.yaml
