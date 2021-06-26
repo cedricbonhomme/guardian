@@ -10,17 +10,7 @@ Monitor the status of interdependent services.
 - IRC notifications.
 
 
-In order to use notification via IRC you need to install
-[irker](http://www.catb.org/~esr/irker/). irker is very easy to install and
-to execute, no configuration is needed. Once executed, irker will wait for JSON
-formatted messages on the port 6659. irker will automatically join the channel
-you have specified in the
-[Guardian configuration file](guardian/config/conf.cfg.sample#L2).
-irker will maintain connection state for multiple channels, avoiding obnoxious
-join/leave spam.
-
-
-## Examples
+## Usage
 
 ```bash
 $ guardian --help
@@ -33,8 +23,26 @@ optional arguments:
   --email               Send notification of failed test(s) via email.
   --irc                 Send notification of failed test(s) via IRC.
   --html                Generate a HTML status page.
+```
 
 
+In order to use notification via IRC you need to install
+[irker](http://www.catb.org/~esr/irker/). irker is very easy to install and
+to run, no configuration is needed. Once executed, irker will wait for JSON
+formatted messages on the port 6659. irker will automatically join the channel
+you have specified in the
+[Guardian configuration file](guardian/config/conf.cfg.sample#L2).
+irker will maintain connection state for multiple channels, avoiding obnoxious
+join/leave spam.
+
+Configurations related to the sending of emails are in the
+[same file](guardian/config/conf.cfg.sample#L5).
+
+
+## Examples
+
+
+```bash
 $ cp guardian/config/config.cfg.example guardian/config/config.cfg
 $ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
 
@@ -56,7 +64,7 @@ $ guardian -c guardian/config/monarc-services.yaml
  - Test /about.json endpoint
      ✅
 ✨ 🌟 ✨ All 6 tests are successful.
-```
+
 
 With email notification:
 
