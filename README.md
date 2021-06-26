@@ -41,9 +41,15 @@ Configurations related to the sending of emails are in the
 
 ## Examples
 
+The goal of the INI configuration file is to set global variables (IRC channel, SMTP
+server, etc.). If you do not create your own configuration file, the default one will
+be used automatically.
+
+The services to monitor must be described in one (or several) YAML file(s).
+
 
 ```bash
-$ cp guardian/config/config.cfg.example guardian/config/config.cfg
+$ cp guardian/config/config.cfg.sample guardian/config/config.cfg
 $ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
 
 
@@ -64,6 +70,7 @@ $ guardian -c guardian/config/monarc-services.yaml
  - Test /about.json endpoint
      ✅
 ✨ 🌟 ✨ All 6 tests are successful.
+```
 
 
 With email notification:
