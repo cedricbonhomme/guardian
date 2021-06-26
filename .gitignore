@@ -41,3 +41,4 @@ reports/index.html
 reports/node_modules/
 reports/static/npm_components
 guardian/config/*.yaml
+guardian/config/*.cfg
