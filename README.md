@@ -8,6 +8,9 @@ Monitor the status of interdependent services.
 - generation of HTML status page;
 - email notifications.
 
+Todo:
+
+- IRC notifications with [irker](http://www.catb.org/~esr/irker).
 
 ## Examples
 
