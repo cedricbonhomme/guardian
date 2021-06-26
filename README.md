@@ -6,26 +6,36 @@ Monitor the status of interdependent services.
 - tests performed by custom scripts (Shell script, Python script, etc.);
 - no database and serverless;
 - generation of HTML status page;
-- email notifications.
+- email notifications;
+- IRC notifications.
 
-Todo:
 
-- IRC notifications with [irker](http://www.catb.org/~esr/irker).
+In order to use notification via IRC you need to install
+[irker](http://www.catb.org/~esr/irker/). irker is very easy to install and
+to execute, no configuration is needed. Once executed, irker will wait for JSON
+formatted messages on the port 6659. irker will automatically join the channel
+you have specified in the
+[Guardian configuration file](guardian/config/conf.cfg-sample).
+irker will maintain connection state for multiple channels, avoiding obnoxious
+join/leave spam.
+
 
 ## Examples
 
 ```bash
 $ guardian --help
-usage: guardian [-h] -c CONFIG_FILE [--email] [--html]
+usage: guardian [-h] -c CONFIG_FILE [--email] [--irc] [--html]
 
 optional arguments:
   -h, --help            show this help message and exit
   -c CONFIG_FILE, --config CONFIG_FILE
                         Configuration file (YAML).
-  --email               Send an email in case of failed test(s).
+  --email               Send notification of failed test(s) via email.
+  --irc                 Send notification of failed test(s) via IRC.
   --html                Generate a HTML status page.
 
 
+$ cp guardian/config/config.cfg.example guardian/config/config.cfg
 $ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
 
 

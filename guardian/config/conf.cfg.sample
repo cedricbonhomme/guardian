@@ -1,0 +1,10 @@
+[irc]
+channel = irc://irc.libera.chat/#testGuardian
+host = localhost
+port = 6659
+[email]
+mail_from = guardian@localhost
+mail_to = you_address
+smtp = SMTP_server
+username = your_username
+password = your_password

@@ -7,6 +7,9 @@ from datetime import datetime
 from yaml import load, CLoader
 from jinja2 import Template
 
+from . import conf
+from . import notification
+
 
 def exec_cmd(cmd):
     """Execute a command in a sub process."""
@@ -38,7 +41,13 @@ def run():
         "--email",
         dest="email_notification",
         action="store_true",
-        help="Send an email in case of failed test(s).",
+        help="Send notification of failed test(s) via email.",
+    )
+    parser.add_argument(
+        "--irc",
+        dest="irc_notification",
+        action="store_true",
+        help="Send notification of failed test(s) via IRC.",
     )
     parser.add_argument(
         "--html",
@@ -67,7 +76,7 @@ def run():
             "service_name": service,
             "is_ok": True,
             "errors": [],
-            "nb_test": len(services[service]["tests"])
+            "nb_test": len(services[service]["tests"]),
         }
         print("+ " + service)
         for test in services[service]["tests"]:
@@ -107,6 +116,13 @@ def run():
         if arguments.email_notification:
             print("Sending email notification...")
             # TODO
+
+        if arguments.irc_notification:
+            print("Sending IRC notification...")
+            for error in all_errors:
+                notification.irker(
+                    "Error for service '{}'. Test: {}".format(error[0], error[1])
+                )
 
     if arguments.html_report:
         print("Generating HTML status page...")
