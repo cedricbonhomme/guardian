@@ -16,8 +16,8 @@ IRC_CHANNEL = config.get("irc", "channel")
 IRKER_HOST = config.get("irc", "host")
 IRKER_PORT = int(config.get("irc", "port"))
 
-MAIL_FROM = config.get('email','mail_from')
-MAIL_TO = [config.get('email','mail_to')]
-SMTP_SERVER = config.get('email','smtp')
-USERNAME =  config.get('email','username')
-PASSWORD =  config.get('email','password')
+MAIL_FROM = config.get("email", "mail_from")
+MAIL_TO = [config.get("email", "mail_to")]
+SMTP_SERVER = config.get("email", "smtp")
+USERNAME = config.get("email", "username")
+PASSWORD = config.get("email", "password")
