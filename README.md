@@ -15,7 +15,7 @@ In order to use notification via IRC you need to install
 to execute, no configuration is needed. Once executed, irker will wait for JSON
 formatted messages on the port 6659. irker will automatically join the channel
 you have specified in the
-[Guardian configuration file](guardian/config/conf.cfg-sample).
+[Guardian configuration file](guardian/config/conf.cfg.sample#L2).
 irker will maintain connection state for multiple channels, avoiding obnoxious
 join/leave spam.
 
