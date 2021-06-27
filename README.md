@@ -89,6 +89,8 @@ Execution time: 0:00:00.793011
 Sending email notification...
 ```
 
+You can combine email notifications, IRC notifications and HTML reporting.
+
 
 ## Contributing
 
@@ -100,7 +102,7 @@ Thanks!
 
 ## License
 
-This software is licensed under
+[Guardian](https://sr.ht/~cedric/guardian) is licensed under
 [GNU Affero General Public License version 3](https://www.gnu.org/licenses/agpl-3.0.html).
 
 Copyright (C) 2021 [Cédric Bonhomme](https://www.cedricbonhomme.org)
