@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "guardian"
 version = "0.2.0"
-description = "Monitor the status of interdependent services."
+description = "Monitor the status of a set of services."
 authors = ["Cédric Bonhomme <cedric@cedricbonhomme.org>"]
 license = "AGPL-3.0-or-later"
 

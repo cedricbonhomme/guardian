@@ -1,9 +1,9 @@
 # Guardian
 
-Monitor the status of interdependent services.
+Monitor the status of a set of services. Characteristics:
 
-- based on a YAML file;
-- tests performed by custom scripts (Shell script, Python script, etc.);
+- definition of the services to monitor with a YAML file;
+- tests performed by custom scripts (Shell scripts, Python scripts, etc.);
 - no database and serverless;
 - generation of HTML status page;
 - email notifications;
