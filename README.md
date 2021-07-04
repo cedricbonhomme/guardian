@@ -1,5 +1,7 @@
 # Guardian
 
+[![PyPi version](https://img.shields.io/pypi/v/guardian.svg?style=flat-square)](https://pypi.org/project/guardian)
+
 Monitor the status of a set of services. Characteristics:
 
 - definition of the services to monitor with a YAML file;
