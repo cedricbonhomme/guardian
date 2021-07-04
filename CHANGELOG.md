@@ -1,6 +1,13 @@
 Guardian Changelog
 ==================
 
+## 0.2.1 (2021-07-04)
+
+### New
+
+- fix loading of the configuration file.
+
+
 ## 0.2.0 (2021-06-27)
 
 ### New
