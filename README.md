@@ -10,6 +10,19 @@ Monitor the status of a set of services. Characteristics:
 - IRC notifications.
 
 
+## Installation
+
+```bash
+$ pipx install guardian
+  installed package guardian 0.2.1, Python 3.9.2
+  These apps are now globally available
+    - guardian
+done! ✨ 🌟 ✨
+```
+
+You can now use Guardian from anywhere on your system.
+
+
 ## Usage
 
 ```bash
