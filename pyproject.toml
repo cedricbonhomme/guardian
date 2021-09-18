@@ -25,7 +25,9 @@ classifiers = [
 include = [
     "README.md",
     "COPYING",
-    "reports"
+    "reports",
+    "guardian/templates/email.txt",
+    "guardian/templates/report.html"
 ]
 
 [tool.poetry.urls]
