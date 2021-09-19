@@ -8,8 +8,8 @@ import configparser
 config = configparser.SafeConfigParser()
 try:
     config.read("guardian/config/conf.cfg")
-except:
-    pass #config.read("guardian/config/conf.cfg.sample")
+except Exception:
+    pass  # config.read("guardian/config/conf.cfg.sample")
 
 
 IRC_CHANNEL = config.get("irc", "channel", fallback="irc://irc.libera.chat/#testGuardian")
