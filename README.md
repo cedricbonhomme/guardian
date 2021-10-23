@@ -65,26 +65,25 @@ The services to monitor must be described in one (or several) YAML file(s).
 
 ```bash
 $ cp guardian/config/config.cfg.sample guardian/config/config.cfg
-$ cp guardian/config/services.yaml.example guardian/config/monarc-services.yaml
+$ cp guardian/config/services.yaml.example guardian/config/services.yaml
 
 
-$ guardian -c guardian/config/monarc-services.yaml
-+ Service my.monarc.lu
- - Test HTTPS front server
-     ✅
- - Test HTTPS FO1 (casesmodels)
-     ✅
- - Test HTTPS FO2 (casesmodels2)
-     ✅
- - Test HTTPS Back Office
+$ guardian -c guardian/config/services.yaml
++ Service Newspipe
+ - Test about page
      ✅
 + Service MOSP
- - Test API
+ - Test main page
      ✅
-+ Stats Service
- - Test /about.json endpoint
+ - Test search with API v2
      ✅
-✨ 🌟 ✨ All 6 tests are successful.
+ - Test API v1
+     ✅
++ Freshermeat
+ - Test main page
+     ✅
+Execution time: 0.47015 seconds.
+✨ 🌟 ✨ All 5 tests are successful.
 ```
 
 
