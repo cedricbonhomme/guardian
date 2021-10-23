@@ -12,8 +12,7 @@ except Exception:
     pass  # config.read("guardian/config/conf.cfg.sample")
 
 
-IRC_CHANNEL = config.get(
-    "irc", "channel", fallback="")
+IRC_CHANNEL = config.get("irc", "channel", fallback="")
 IRKER_HOST = config.get("irc", "host", fallback="localhost")
 IRKER_PORT = int(config.get("irc", "port", fallback=6659))
 
