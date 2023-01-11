@@ -119,4 +119,4 @@ Thanks!
 [Guardian](https://sr.ht/~cedric/guardian) is licensed under
 [GNU Affero General Public License version 3](https://www.gnu.org/licenses/agpl-3.0.html).
 
-Copyright (C) 2021 [Cédric Bonhomme](https://www.cedricbonhomme.org)
+Copyright (C) 2021-2023 [Cédric Bonhomme](https://www.cedricbonhomme.org)

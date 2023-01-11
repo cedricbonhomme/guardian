@@ -1,6 +1,13 @@
 Guardian Changelog
 ==================
 
+## 0.2.2 (2023-01-11)
+
+### Changes
+
+- updated Python dependencies (now using Jinja >=3.0.0).
+
+
 ## 0.2.1 (2021-07-04)
 
 ### New
