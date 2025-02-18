@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import requests
+import requests  # type: ignore[import-untyped]
 
 
 def execute(param):

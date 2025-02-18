@@ -4,11 +4,10 @@
 import argparse
 import subprocess
 from datetime import datetime
-from yaml import load, CLoader
+from yaml import load, CLoader  # type: ignore[import-untyped]
 from jinja2 import Template
 
-from . import conf
-from . import notification
+from guardian import notification
 
 
 def exec_cmd(cmd):

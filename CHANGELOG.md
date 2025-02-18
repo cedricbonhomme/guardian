@@ -1,6 +1,12 @@
 Guardian Changelog
 ==================
 
+## 0.2.3 (2025-02-18)
+
+- Updated dependencies.
+- The project is now using Trusted Publishing with Pypi.
+
+
 ## 0.2.2 (2023-01-11)
 
 ### Changes

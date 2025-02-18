@@ -5,7 +5,7 @@
 import configparser
 
 # load the configuration
-config = configparser.SafeConfigParser()
+config = configparser.ConfigParser()
 try:
     config.read("guardian/config/conf.cfg")
 except Exception:

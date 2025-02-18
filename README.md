@@ -106,17 +106,9 @@ Sending email notification...
 You can combine email notifications, IRC notifications and HTML reporting.
 
 
-## Contributing
-
-Patches and questions? Send to my [public
-inbox](https://lists.sr.ht/~cedric/public-inbox):
-[`~cedric/public-inbox@lists.sr.ht`](mailto:~cedric/public-inbox@lists.sr.ht).
-Thanks!
-
-
 ## License
 
-[Guardian](https://sr.ht/~cedric/guardian) is licensed under
+[Guardian](https://github.com/cedricbonhomme/guardian) is licensed under
 [GNU Affero General Public License version 3](https://www.gnu.org/licenses/agpl-3.0.html).
 
-Copyright (C) 2021-2023 [Cédric Bonhomme](https://www.cedricbonhomme.org)
+Copyright (C) 2021-2025 [Cédric Bonhomme](https://www.cedricbonhomme.org)

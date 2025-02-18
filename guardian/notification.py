@@ -13,7 +13,7 @@ from guardian import conf
 def irker(message):
     """Send a JSON formatted message to an instance of irker."""
     if not conf.IRC_CHANNEL:
-        raise "No IRC channel defined."
+        raise Exception("No IRC channel defined.")
     data = {"to": conf.IRC_CHANNEL, "privmsg": message}
     try:
         s = socket.create_connection((conf.IRKER_HOST, conf.IRKER_PORT))
